@@ -80,14 +80,14 @@
    INDICIU: Text între ghilimele · număr și true/false fără ghilimele · let salaWorkshop
      (fără =) lasă cutia goală · typeof salaWorkshop → undefined.
    GREȘEALĂ FRECVENTĂ: Scrii "false" cu ghilimele: devine text, nu boolean. */
-let workshop = "Workshop CSS";
-let locuriWorkshop = 25;
-let esteGratuitWorkshop = false;
-let salaWorkshop;
-console.log(typeof workshop);
-console.log(typeof locuriWorkshop);
-console.log(typeof esteGratuitWorkshop);
-console.log(typeof salaWorkshop);
+// let workshop = "Workshop CSS";
+// let locuriWorkshop = 25;
+// let esteGratuitWorkshop = false;
+// let salaWorkshop;
+// console.log(typeof workshop);
+// console.log(typeof locuriWorkshop);
+// console.log(typeof esteGratuitWorkshop);
+// console.log(typeof salaWorkshop);
 
 /* ===== Exercițiul 5 · GHIDAT · 5 min · Toți operatorii, pe rând =====
       CE FACI: Încearcă pe rând câte un operator din fiecare familie, pe datele hackathonului
@@ -118,13 +118,18 @@ console.log(typeof salaWorkshop);
       CE FACI: Din 40 de locuri, 28 sunt ocupate. Calculează locurile rămase cu variabile și
         operatorul -, apoi afișează un mesaj cu +. Facem împreună calculul.
       E GATA CÂND:
-      [ ] Output arată Locuri libere: 12
-      [ ] locuriRamase este calculat, nu scris de mână
+      [x] Output arată Locuri libere: 12
+      [x] locuriRamase este calculat, nu scris de mână
       OUTPUT AȘTEPTAT:
         Locuri libere: 12
       INDICIU: locuri - inscrisi → scade două numere · rezultatul se salvează într-o variabilă
         nouă · "text" + variabilă → lipește textul de valoare.
       GREȘEALĂ FRECVENTĂ: Uiți spațiul din text: iese Locuri libere:12, lipit. */
+
+// let locuriLibere = 40;
+// let locuriInscrisi = 28;
+// let locuriRamase = locuriLibere - locuriInscrisi;
+// console.log("Locuri libere: " + locuriRamase);
 
 /* ===== Exercițiul 7 · SINGUR · 4 min · Se mai poate înscrie cineva? =====
       CE FACI: În același fișier: hackathonul primește înscrieri dacă mai are locuri rămase și
@@ -139,6 +144,11 @@ console.log(typeof salaWorkshop);
         · && → true doar când ambele sunt true.
       GREȘEALĂ FRECVENTĂ: Scrii pret = 0 în loc de pret === 0: cu un singur = pui o valoare, nu
         compari. */
+
+// let locuriRamase = 40 - 28;
+// let pret = 0;
+// let poateInscrie = locuriRamase > 0 && pret === 0;
+// console.log(poateInscrie ? "true" : "false");
 
 /* ===== Exercițiul 8 · SINGUR · 3 min · Evenimentul tău =====
       CE FACI: Alege un eveniment real, al tău: un meci, un concert, un meetup. Pune în
@@ -155,6 +165,13 @@ console.log(typeof salaWorkshop);
         true dacă prețul e 0 · console.log(numeTau) și console.log(gratuitTau) → afișezi.
       GREȘEALĂ FRECVENTĂ: Schimbi numele locuriTau sau pretTau: sesiunea 14 le reia, deci
         păstrează-le exact așa. */
+
+// let numeTau = "Hackathon";
+// let locuriTau = 40;
+// let pretTau = 0;
+// let gratuitTau = pretTau === 0;
+// console.log(numeTau);
+// console.log(gratuitTau);
 
 /* ===== TEMĂ DE ACASĂ · Meetup-ul, descris în JavaScript =====
       CE FACI: Descrie în js/sesiunea-13.js evenimentul Meetup din Campus Hub, cu variabile și
@@ -180,3 +197,16 @@ console.log(typeof salaWorkshop);
         tipul.
       GREȘEALĂ FRECVENTĂ: Scrii typeof "40" și te miri că iese string: ghilimelele fac din
         cifre un text. */
+
+let numeMeetup = "Meetup JS";
+let locuriMeetup = 18;
+let esteGratuitMeetup = false;
+let salaMeetup = "Sala A2";
+console.log(numeMeetup);
+console.log(locuriMeetup);
+console.log(esteGratuitMeetup);
+console.log(salaMeetup);
+console.log(typeof numeMeetup);
+console.log(typeof locuriMeetup);
+console.log(typeof esteGratuitMeetup);
+console.log(typeof salaMeetup);
