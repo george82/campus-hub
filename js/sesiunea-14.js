@@ -24,9 +24,14 @@
      valoare. Pentru comparație folosești ===, iar pentru un boolean e suficient numele
      variabilei. */
 
-let esteStudent = true
-let pretBilet = 40
+// let esteStudent = true;
+// let pretBilet = 40;
 
+// if (esteStudent) {
+//   console.log("Preț bilet student: " + pretBilet / 2);
+// } else {
+//   console.log("Preț bilet non-student: " + pretBilet);
+// }
 
 /* ===== Exercițiul 2 · SINGUR · 5 min · Mesajul pentru locurile libere =====
    CE FACI: Afișează un mesaj după locuriDisponibile: 0 → „Plin”, cel mult 5 → „Ultimele
@@ -43,8 +48,15 @@ let pretBilet = 40
    GREȘEALĂ FRECVENTĂ: Pui else if înaintea primului if: ordinea contează, JavaScript se
      oprește la primul răspuns adevărat. */
 
-let locuriDisponibile = 3
+// let locuriDisponibile = 3;
 
+// if (locuriDisponibile === 0) {
+//   console.log("Plin");
+// } else if (locuriDisponibile <= 5) {
+//   console.log("Ultimele locuri");
+// } else {
+//   console.log("Locuri libere");
+// }
 
 /* ===== Exercițiul 3 · GHIDAT · 6 min · Prima funcție: salut =====
    CE FACI: Scrie funcția salut(nume) care întoarce „Salut, ” + nume + „!”. Apeleaz-o pentru
@@ -61,6 +73,13 @@ let locuriDisponibile = 3
    GREȘEALĂ FRECVENTĂ: Uiți return: funcția calculează textul, dar nu îl trimite înapoi, iar
      în Output apare undefined. */
 
+//  return "Salut, " + nume + "!";
+// function salut(nume) {
+//   return "Salut, " + nume + "!";
+// }
+
+// console.log(salut("Ana"));
+// console.log(salut("Mihai"));
 
 /* ===== Exercițiul 4 · SINGUR · 5 min · calculeazaPret(pret, esteStudent) =====
    CE FACI: Scrie funcția calculeazaPret care primește prețul și esteStudent: întoarce
@@ -78,6 +97,31 @@ let locuriDisponibile = 3
    GREȘEALĂ FRECVENTĂ: Pui else după return fără să ai nevoie: return oprește funcția, deci
      return pret; la final e suficient. */
 
+//  if (esteStudent) {
+//   return pret / 2;
+//  } else {
+//   return pret;
+//  }
+// function calculeazaPret(pret, esteStudent) {
+//   if (esteStudent) {
+//     return pret / 2;
+//   } else {
+//     return pret;
+//   }
+// }
+
+// console.log(calculeazaPret(40, true));
+// console.log("Preț întreg: " + calculeazaPret(40, false));
+
+// for (let i = 1; i <= 5; i++) {
+//   console.log("Locul " + i);
+// }
+
+// let total = 0;
+// for (let i = 1; i <= 4; i++) {
+//   total = total + calculeazaPret(40, true);
+// }
+// console.log("Total 4 bilete: " + total);
 
 /* ===== Exercițiul 5 · GHIDAT · 5 min · Locurile de la 1 la 5 =====
    CE FACI: Afișează „Locul 1”, „Locul 2” ... „Locul 5” cu un for, nu cu cinci linii. Scriem
@@ -96,7 +140,6 @@ let locuriDisponibile = 3
      pas: crește i cu 1 · în interior: console.log("Locul " + i).
    GREȘEALĂ FRECVENTĂ: Scrii i < 5 în loc de i <= 5: bucla se oprește la Locul 4. */
 
-
 /* ===== Exercițiul 6 · SINGUR · 5 min · Totalul pentru 4 bilete =====
    CE FACI: Calculează totalul pentru 4 bilete de student: un for adună prețul fiecărui
      bilet, calculat cu calculeazaPret, și afișează totalul. Fără demonstrație.
@@ -111,7 +154,6 @@ let locuriDisponibile = 3
      bilete: " + total) → după buclă.
    GREȘEALĂ FRECVENTĂ: Pui let total = 0; în interiorul buclei: la fiecare tură total revine
      la 0 și rezultatul e 20. */
-
 
 /* ===== Exercițiul 7 · GHIDAT · 8 min · Rezervarea biletelor =====
    CE FACI: Scriem împreună funcția rezervaBilete(locuriLibere, cereri): pentru fiecare
@@ -135,7 +177,6 @@ let locuriDisponibile = 3
    GREȘEALĂ FRECVENTĂ: Uiți să scazi locul după confirmare: toate cererile ies „confirmat”,
      chiar dacă locurile s-au terminat. */
 
-
 /* ===== Exercițiul 8 · SINGUR · 4 min · Harta locurilor, cu Copilot =====
    CE FACI: Cere-i lui GitHub Copilot funcția afiseazaHarta(locuriTotale, locuriOcupate):
      pentru fiecare loc de la 1 la locuriTotale afișează „Locul i: ocupat” dacă i <=
@@ -157,6 +198,17 @@ let locuriDisponibile = 3
    GREȘEALĂ FRECVENTĂ: Accepți sugestia fără s-o rulezi: Copilot poate greși, de exemplu
      pornește de la 0 în loc de 1. Verifică mereu în Output. */
 
+// funcția afiseazaHarta(locuriTotale, locuriOcupate): pentru fiecare loc de la 1 la locuriTotale afișează „Locul i: ocupat” dacă i <= locuriOcupate, altfel „Locul i: liber”.
+
+function afiseazaHarta (locuriTotale, locuriOcupate) {
+  for (let i = 1; i <= locuriTotale; i++) {
+    if (i <= locuriOcupate) {
+      console.log('Locul ' + i + ': ocupat')
+    } else {
+      console.log('Locul ' + i + ': liber')
+    }
+  }
+}
 
 /* ===== TEMĂ DE ACASĂ · Raportul evenimentului tău, într-o funcție =====
    CE FACI: Scrie funcția raportEveniment(nume, locuriTotale, locuriOcupate, pret) pentru un
