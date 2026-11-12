@@ -7,7 +7,6 @@
 // La DATE DE PORNIRE, codul de sub bloc e deja scris. La exercițiile 3 și 4 codul stricat e comentat:
 // îl selectezi, îl decomentezi cu Ctrl+/ și îl repari. Output arată o linie de titlu pentru fiecare exercițiu.
 
-
 /* ===== Exercițiul 1 · GHIDAT · 4 min · Alegi între let și const =====
    CE FACI: Declari titlul evenimentului (nu se schimbă) și locurile rămase (scad la fiecare
      înscriere).
@@ -26,7 +25,6 @@
 
 console.log("--- Exercițiul 1 ---");
 
-
 /* ===== Exercițiul 2 · SINGUR · 3 min · Schimbi un const: ce se întâmplă? =====
    CE FACI: Vezi ce se întâmplă când încerci să schimbi o valoare declarată cu const.
    PAȘI:
@@ -44,7 +42,9 @@ console.log("--- Exercițiul 1 ---");
      sala rămâne A2. */
 
 console.log("--- Exercițiul 2 ---");
-
+// let salaCurs = 'A2' // Schimbat din const în let
+// salaCurs = 'B1' // Acum poate fi reasignată
+// console.log(salaCurs)
 
 /* ===== Exercițiul 3 · GHIDAT · 5 min · Variabila din interiorul if =====
    CE FACI: Funcția pretFinal dă eroarea „discount is not defined”: discount trăiește doar
@@ -63,15 +63,15 @@ console.log("--- Exercițiul 2 ---");
      dispare la }. */
 
 console.log("--- Exercițiul 3 ---");
-// function pretFinal(esteStudent) {
-//   const pret = 100;
-//   if (esteStudent) {
-//     let discount = 10;
-//   }
-//   return pret - discount;
-// }
-// console.log("Preț final: " + pretFinal(true));
-
+function pretFinal(esteStudent) {
+  const pret = 100;
+  let discount = 6;
+  if (esteStudent) {
+    discount = 10;
+  }
+  return pret - discount;
+}
+console.log("Preț final: " + pretFinal(true));
 
 /* ===== Exercițiul 4 · SINGUR · 2 min · Repară: variabila din if =====
    CE FACI: Funcția mesajLocuri dă „mesaj is not defined”: mesaj e declarată în if și în
@@ -100,7 +100,6 @@ console.log("--- Exercițiul 4 ---");
 // }
 // console.log(mesajLocuri(5));
 
-
 /* ===== Exercițiul 5 · GHIDAT · 5 min · Primul obiect: evenimentul =====
    CE FACI: Creezi primul obiect, apoi îi citești și îi schimbi o valoare.
    PAȘI:
@@ -120,6 +119,11 @@ console.log("--- Exercițiul 4 ---");
 
 console.log("--- Exercițiul 5 ---");
 
+const eveniment1 = {
+  nume: "Hackathon",
+  locuri: 20,
+  pret: 90,
+};
 
 /* ===== Exercițiul 6 · SINGUR · 3 min · Citești, schimbi, adaugi, ștergi =====
    CE FACI: Obiectul eveniment2 e scris deja în fișier: îl schimbi, îi adaugi și îi ștergi
@@ -144,6 +148,13 @@ console.log("--- Exercițiul 5 ---");
 console.log("--- Exercițiul 6 ---");
 const eveniment2 = { nume: "Hackathon", locuri: 20, pret: 90 };
 
+eveniment2.locuri = eveniment2.locuri - 1;
+eveniment2.sala = "A2";
+delete eveniment2.pret;
+
+console.log(eveniment2.locuri);
+console.log(eveniment2.sala);
+console.log(eveniment2.pret);
 
 /* ===== Exercițiul 7 · GHIDAT · 5 min · Există cheia? =====
    CE FACI: Obiectul eveniment3 e scris deja în fișier: afli dacă are o cheie.
@@ -164,7 +175,6 @@ const eveniment2 = { nume: "Hackathon", locuri: 20, pret: 90 };
 console.log("--- Exercițiul 7 ---");
 const eveniment3 = { nume: "Hackathon", locuri: 20, pret: 90 };
 
-
 /* ===== Exercițiul 8 · SINGUR · 1.5 min · Are sau nu are cheia? =====
    CE FACI: Obiectul eveniment4 e scris deja în fișier: afișezi un mesaj după ce are sau nu
      are o cheie.
@@ -184,7 +194,11 @@ const eveniment3 = { nume: "Hackathon", locuri: 20, pret: 90 };
 
 console.log("--- Exercițiul 8 ---");
 const eveniment4 = { nume: "Hackathon", locuri: 20, pret: 90 };
-
+if ("sala" in eveniment4) {
+  console.log("Are sala");
+} else {
+  console.log("Nu are sala");
+}
 
 /* ===== Exercițiul 9 · GHIDAT · 5 min · Toate cheile obiectului =====
    CE FACI: Obiectul eveniment5 e scris deja în fișier: îi afișezi toate cheile și valorile,
@@ -208,6 +222,11 @@ const eveniment4 = { nume: "Hackathon", locuri: 20, pret: 90 };
 console.log("--- Exercițiul 9 ---");
 const eveniment5 = { nume: "Hackathon", locuri: 20, pret: 90 };
 
+for (const cheie in eveniment5) {
+  console.log(cheie + ": " + eveniment5[cheie]);
+}
+
+console.log("--- Exercițiul 10 ---");
 
 /* ===== Exercițiul 10 · SINGUR · 5 min · Funcția care judecă obiectul =====
    CE FACI: Funcția statusEveniment primește un obiect și întoarce un text despre eveniment.
@@ -231,7 +250,6 @@ const eveniment5 = { nume: "Hackathon", locuri: 20, pret: 90 };
      apare cu sala, nu „plin”. Ordinea if-urilor contează. */
 
 console.log("--- Exercițiul 10 ---");
-
 
 /* ===== TEMĂ DE ACASĂ · Raportul evenimentelor tale =====
    CE FACI: Construiești un raport pentru două evenimente de la tine: obiecte, funcții,
