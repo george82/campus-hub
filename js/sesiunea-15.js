@@ -221,9 +221,10 @@ if ("sala" in eveniment4) {
 
 console.log("--- Exercițiul 9 ---");
 const eveniment5 = { nume: "Hackathon", locuri: 20, pret: 90 };
-
-for (const cheie in eveniment5) {
-  console.log(cheie + ": " + eveniment5[cheie]);
+console.log(eveniment5.nume);
+console.log(eveniment5["nume"]);
+for (const key in eveniment5) {
+  console.log(key + ": " + eveniment5[key]);
 }
 
 console.log("--- Exercițiul 10 ---");
@@ -250,6 +251,30 @@ console.log("--- Exercițiul 10 ---");
      apare cu sala, nu „plin”. Ordinea if-urilor contează. */
 
 console.log("--- Exercițiul 10 ---");
+
+function statusEveniment(eveniment) {
+  if (eveniment.locuri === 0) {
+    return eveniment.nume + ": plin";
+  } else if ("sala" in eveniment) {
+    return (
+      eveniment.nume +
+      ": " +
+      eveniment.locuri +
+      " locuri, sala " +
+      eveniment.sala
+    );
+  } else {
+    return (
+      eveniment.nume + ": " + eveniment.locuri + " locuri, sală necunoscută"
+    );
+  }
+}
+const hackathon = { nume: "Hackathon", locuri: 20, sala: "A2" };
+const workshop = { nume: "Workshop CSS", locuri: 0 };
+const meetup = { nume: "Meetup", locuri: 35 };
+console.log(statusEveniment(hackathon));
+console.log(statusEveniment(workshop));
+console.log(statusEveniment(meetup));
 
 /* ===== TEMĂ DE ACASĂ · Raportul evenimentelor tale =====
    CE FACI: Construiești un raport pentru două evenimente de la tine: obiecte, funcții,
@@ -288,3 +313,39 @@ console.log("--- Exercițiul 10 ---");
    GREȘEALĂ FRECVENTĂ: Scrii „Locuri libere” primul în if / else if: acel caz prinde orice
      eveniment, iar „Plin” și „Ultimele locuri” nu mai ajung niciodată să se verifice. Cazul
      cel mai strâns merge primul. */
+
+const evenimentulA = {
+  nume: "Hackathon",
+  locuri: 20,
+  ocupate: 10,
+  pret: 90,
+  sala: "A2",
+};
+const evenimentulB = { nume: "Workshop CSS", locuri: 0, ocupate: 0, pret: 100 };
+
+function raportEveniment(eveniment) {
+  const locuriLibere = eveniment.locuri - eveniment.ocupate;
+  const incasari = eveniment.ocupate * eveniment.pret;
+  if (locuriLibere === 0) {
+    return eveniment.nume + " · Plin · încasări " + incasari + " lei";
+  } else if (locuriLibere < 5) {
+    return (
+      eveniment.nume + " · Ultimele locuri (" + locuriLibere + " locuri libere)"
+    );
+  } else {
+    return (
+      eveniment.nume + " · Locuri libere (" + locuriLibere + " locuri libere)"
+    );
+  }
+}
+console.log(raportEveniment(evenimentulA));
+console.log(raportEveniment(evenimentulB));
+
+function ceaMaiMultaIncasare(eveniment1, eveniment2) {
+  if (eveniment1.incasari > eveniment2.incasari) {
+    return eveniment1.nume;
+  } else {
+    return eveniment2.nume;
+  }
+}
+console.log(ceaMaiMultaIncasare(evenimentulA, evenimentulB));
