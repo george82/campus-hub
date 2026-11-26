@@ -51,6 +51,11 @@ buton1.addEventListener("click", () => {
 
 console.log("--- Exercițiul 2 ---");
 
+const descriere2 = document.querySelector("#descriere");
+descriere2.addEventListener("click", () => {
+  descriere2.classList.toggle("recomandat");
+});
+
 /* ===== Exercițiul 3 · GHIDAT · 6 min · Scrii, pagina răspunde =====
    CE FACI: Pe măsură ce scrii în câmpul „Numele evenimentului”, descrierea îți spune câte
      litere ai scris.
@@ -70,6 +75,12 @@ console.log("--- Exercițiul 2 ---");
      value; value e pe elementul din event.target. */
 
 console.log("--- Exercițiul 3 ---");
+
+const camp3 = document.querySelector("#input-eveniment");
+const descriere3 = document.querySelector("#descriere");
+camp3.addEventListener("input", (event) => {
+  descriere3.textContent = "Ai scris " + event.target.value.length + " litere";
+});
 
 /* ===== Exercițiul 4 · SINGUR · 2 min · Câmpul se colorează =====
    CE FACI: Dacă numele scris în câmp are mai mult de 20 de litere, chenarul câmpului devine
@@ -93,6 +104,15 @@ console.log("--- Exercițiul 3 ---");
      funcția din Exercițiul 3. */
 
 console.log("--- Exercițiul 4 ---");
+
+camp3.addEventListener("input", (event) => {
+  if (event.target.value.length > 20) {
+    camp3.style.borderColor = "red";
+  } else {
+    camp3.style.borderColor = "#cbd5e1";
+  }
+  descriere3.textContent = "Ai scris " + event.target.value.length + " litere";
+});
 
 /* ===== Exercițiul 5 · SINGUR · 3 min · Scrie randeaza =====
    CE FACI: Pui bucla din sesiunea 17 într-o funcție, randeaza, care desenează cardurile din
@@ -178,6 +198,68 @@ function creeazaCard(eveniment) {
   card.appendChild(actiuni);
   return card;
 }
+
+function randeaza() {
+  lista.innerHTML = "";
+  evenimente.forEach((eveniment) => {
+    lista.appendChild(creeazaCard(eveniment));
+  });
+  contor.textContent = evenimente.length;
+}
+
+randeaza();
+
+function adauga() {
+  if (camp.value === "") {
+    descriere.textContent = "Scrie numele evenimentului";
+    return;
+  }
+  evenimente.push({ id: urmatorulId, nume: camp.value, locuri: 30, pret: 50 });
+  urmatorulId++;
+  randeaza();
+}
+
+buton1.addEventListener("click", adauga);
+randeaza();
+
+function sterge(id) {
+  evenimente = evenimente.filter((eveniment) => eveniment.id !== id);
+  randeaza();
+}
+
+function editeaza(id) {
+  idInEditare = id;
+  randeaza();
+}
+
+function salveaza(id, numeNou) {
+  const index = evenimente.findIndex((eveniment) => eveniment.id === id);
+  evenimente[index].nume = numeNou;
+  idInEditare = null;
+  randeaza();
+}
+
+function anuleaza() {
+  idInEditare = null;
+  randeaza();
+}
+
+function switchCase(event) {
+  const actiune = event.target.getAttribute("data-actiune");
+  const id = Number(event.target.getAttribute("data-id"));
+  switch (actiune) {
+    case "sterge":
+      sterge(id);
+      break;
+    case "editeaza":
+      editeaza(id);
+      break;
+    default:
+      return;
+  }
+}
+
+lista.addEventListener("click", switchCase);
 
 /* ===== Exercițiul 6 · GHIDAT · 10 min · Create: adaugă un eveniment =====
    CE FACI: La click pe „Adaugă”, numele din câmp devine un eveniment nou în listă, iar
